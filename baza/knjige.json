@@ -1,0 +1,170 @@
+[{
+  "_id": {
+    "$oid": "62f93bdb24133aa02a18e2e2"
+  },
+  "idKnjige": 1,
+  "naziv": "Zlocin i kazna",
+  "autori": [
+    {
+      "ime": "Fjodor Dostojevski"
+    }
+  ],
+  "izdavac": "Otvorena knjiga",
+  "godina": 2004,
+  "jezik": "Srpski jezik",
+  "slika": "default2.png",
+  "brojZaduzivanja": 2,
+  "brojNaStanju": 3,
+  "zanr": [
+    {
+      "naziv": "klasik"
+    }
+  ],
+  "recenzije": [
+    {
+      "ocena": 8,
+      "komentar": "Odlicna knjiga!",
+      "korisnickoIme": "Zex",
+      "datumIVreme": "2022-03-28 21:03:52",
+      "azuriran": false
+    },
+    {
+      "ocena": 10,
+      "komentar": "Klasik!",
+      "korisnickoIme": "babirlo",
+      "datumIVreme": "2022-08-08 23:03:12",
+      "azuriran": false
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "62f93bf624133aa02a18e2e3"
+  },
+  "idKnjige": 2,
+  "naziv": "Starac i more",
+  "autori": [
+    {
+      "ime": "Ernest Hemingvej"
+    }
+  ],
+  "izdavac": "JRJ",
+  "godina": 2009,
+  "jezik": "Srpski jezik",
+  "slika": "staracimore.png",
+  "brojZaduzivanja": 3,
+  "brojNaStanju": 1,
+  "zanr": [
+    {
+      "naziv": "klasik"
+    }
+  ],
+  "recenzije": [
+    {
+      "ocena": 2,
+      "komentar": "Dosadna knjiga, nema radnju.",
+      "korisnickoIme": "Zex",
+      "datumIVreme": "2022-05-01 12:34:58",
+      "azuriran": false
+    },
+    {
+      "ocena": 10,
+      "komentar": "Moja omiljena knjiga, citao sam je 10 puta!",
+      "korisnickoIme": "mitrogol",
+      "datumIVreme": "2022-07-01 08:12:24",
+      "azuriran": false
+    },
+    {
+      "ocena": 7,
+      "komentar": "Dobra knjiga, ali fali malo vise radnje i akcije",
+      "korisnickoIme": "babirlo",
+      "datumIVreme": "2022-08-28 14:22:01",
+      "azuriran": true
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "62f93c0b24133aa02a18e2e4"
+  },
+  "idKnjige": 3,
+  "naziv": "Bogati otac siromasni otac",
+  "autori": [
+    {
+      "ime": "Robert Kiosaki"
+    },
+    {
+      "ime": "Seron Lehter"
+    }
+  ],
+  "izdavac": "FINESA",
+  "godina": 2018,
+  "jezik": "Nemacki jezik",
+  "slika": "bogatsiromasan.jpg",
+  "brojZaduzivanja": 2,
+  "brojNaStanju": 4,
+  "zanr": [
+    {
+      "naziv": "biznis"
+    },
+    {
+      "naziv": "psihologija"
+    }
+  ],
+  "recenzije": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62fbe45f129cab1ff16804cf"
+  },
+  "idKnjige": 4,
+  "naziv": "Ja sam Zlatan Ibrahimovic",
+  "autori": [
+    {
+      "ime": "David Lagerkranc"
+    }
+  ],
+  "izdavac": "Buybook",
+  "godina": 2021,
+  "jezik": "Srpski jezik",
+  "slika": "zlatan.jpg",
+  "brojZaduzivanja": 2,
+  "brojNaStanju": 0,
+  "zanr": [
+    {
+      "naziv": "biografija"
+    }
+  ],
+  "recenzije": [
+    {
+      "ocena": 10,
+      "komentar": "Odusevljen sam, Zlatan GOAT!",
+      "korisnickoIme": "mitrogol",
+      "datumIVreme": "2022-08-16 20:47:34",
+      "azuriran": true
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e6f29d1b30eb927eb4030"
+  },
+  "idKnjige": 5,
+  "naziv": "Igra prestola",
+  "autori": [
+    {
+      "ime": "Dzordz R. R. Martin"
+    }
+  ],
+  "izdavac": "Laguna",
+  "godina": 2003,
+  "jezik": "Srpski jezik",
+  "slika": "igra_prestola-dzordz_r_r_martin_v.jpg",
+  "brojZaduzivanja": 1,
+  "brojNaStanju": 0,
+  "zanr": [
+    {
+      "naziv": "epska fantastika"
+    }
+  ],
+  "recenzije": [],
+  "__v": 0
+}]

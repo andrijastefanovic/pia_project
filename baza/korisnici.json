@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "62e815fdf7f6813805edee3a"
+  },
+  "korisnickoIme": "admin",
+  "lozinka": "Admin123!",
+  "ime": "Andrija",
+  "prezime": "Stefanovic",
+  "adresa": "Cede Minderovica 6, Beograd",
+  "telefon": "0637240334",
+  "imejl": "drija00@hotmail.com",
+  "slika": "default.png",
+  "obradjen": true,
+  "tip": "admin",
+  "blokiran": false
+},{
+  "_id": {
+    "$oid": "62eda2f0f5045b368d87efa5"
+  },
+  "korisnickoIme": "babirlo",
+  "lozinka": "Babovic123!",
+  "ime": "Stefan",
+  "prezime": "Babovic",
+  "adresa": "Bulevar Vudroa Vilsona 8, Beograd",
+  "telefon": "0662341267",
+  "imejl": "babirlo@gmail.com",
+  "slika": "babirlo.png",
+  "obradjen": true,
+  "tip": "moderator",
+  "__v": 0,
+  "blokiran": false
+},{
+  "_id": {
+    "$oid": "62f14ab805f29f9dcf5df736"
+  },
+  "korisnickoIme": "mitrogol",
+  "lozinka": "Fulam123!",
+  "ime": "Aleksandar",
+  "prezime": "Mitrovic",
+  "adresa": "Svetog Nikole 2, Smederevo",
+  "telefon": "0623158893",
+  "imejl": "mitar@gmail.com",
+  "slika": "mitar.png",
+  "obradjen": true,
+  "tip": "citalac",
+  "__v": 0,
+  "blokiran": false
+},{
+  "_id": {
+    "$oid": "62f14b8c05f29f9dcf5df737"
+  },
+  "korisnickoIme": "Zex",
+  "lozinka": "Sakramento5.",
+  "ime": "Zeljko",
+  "prezime": "Pantic",
+  "adresa": "Ulica Bahtijara Vagabzade 4, Beograd",
+  "telefon": "0619048173",
+  "imejl": "zexpuma@gmail.com",
+  "slika": "zex.png",
+  "obradjen": true,
+  "tip": "citalac",
+  "__v": 0,
+  "blokiran": true
+},{
+  "_id": {
+    "$oid": "630f58036aabfa9fd71c76a6"
+  },
+  "korisnickoIme": "mare",
+  "lozinka": "Marko123!",
+  "ime": "Marko",
+  "prezime": "Markovic",
+  "adresa": "Takovska 4, Beograd",
+  "telefon": "0619048173",
+  "imejl": "markoo@gmail.com",
+  "slika": "default.png",
+  "obradjen": true,
+  "tip": "citalac",
+  "__v": 0,
+  "blokiran": false
+}]

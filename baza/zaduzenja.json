@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "62eec3a191735c8d407108d9"
+  },
+  "idKnjige": 2,
+  "korisnickoIme": "babirlo",
+  "datumZaduzenja": "2022-04-06",
+  "datumPovratka": "2022-04-09",
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "62eec42791735c8d407108e1"
+  },
+  "idKnjige": 1,
+  "korisnickoIme": "babirlo",
+  "datumZaduzenja": "2022-08-22",
+  "datumPovratka": "Knjiga nije vracena",
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "62f14fd205f29f9dcf5df73a"
+  },
+  "idKnjige": 1,
+  "korisnickoIme": "Zex",
+  "datumZaduzenja": "2022-03-06",
+  "datumPovratka": "Knjiga nije vracena",
+  "produzeno": true
+},{
+  "_id": {
+    "$oid": "62f14fe805f29f9dcf5df73b"
+  },
+  "idKnjige": 2,
+  "korisnickoIme": "Zex",
+  "datumZaduzenja": "2022-02-13",
+  "datumPovratka": "2022-02-18",
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "62f1501105f29f9dcf5df744"
+  },
+  "idKnjige": 2,
+  "korisnickoIme": "mitrogol",
+  "datumZaduzenja": "2022-06-21",
+  "datumPovratka": "2022-06-27",
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "62ff9f12ac501a3fed6798d5"
+  },
+  "idKnjige": 4,
+  "korisnickoIme": "mitrogol",
+  "datumZaduzenja": "2022-08-16",
+  "datumPovratka": "2022-08-19",
+  "__v": 0,
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "62ff9f2de7233bf2b28488f8"
+  },
+  "idKnjige": 5,
+  "korisnickoIme": "babirlo",
+  "datumZaduzenja": "2022-08-29",
+  "datumPovratka": "Knjiga nije vracena",
+  "produzeno": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e7000eb64bc25b495e6a4"
+  },
+  "idKnjige": 4,
+  "korisnickoIme": "babirlo",
+  "datumZaduzenja": "2022-08-23",
+  "datumPovratka": "Knjiga nije vracena",
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "630f5f226aabfa9fd71c76d7"
+  },
+  "idKnjige": 3,
+  "korisnickoIme": "mare",
+  "datumZaduzenja": "2022-08-16",
+  "datumPovratka": "2022-08-19",
+  "__v": 0,
+  "produzeno": false
+},{
+  "_id": {
+    "$oid": "630f5f3b6aabfa9fd71c76d8"
+  },
+  "idKnjige": 3,
+  "korisnickoIme": "babirlo",
+  "datumZaduzenja": "2022-08-16",
+  "datumPovratka": "2022-08-19",
+  "__v": 0,
+  "produzeno": false
+}]

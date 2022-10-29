@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "62ff99fb26a75a2989f96f8e"
+  },
+  "idRezervacije": 1,
+  "idKnjige": 4,
+  "korisnickoIme": "Zex",
+  "dostupno": false,
+  "__v": 0
+}]
