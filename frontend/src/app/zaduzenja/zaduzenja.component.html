@@ -1,0 +1,30 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a class="active" (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzivanja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false" routerLink="/zahtevi">Zahtevi za dodavanje knjige</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+    </div>
+</header>
+<body>
+    <div class="card" *ngFor="let k of zaduzenja; let i=index" style="width:15%">
+        <img src="../../assets/{{this.zaduzeneKnjige[i].slika}}" alt="Avatar" style="width: 100%;height: 100%;" *ngIf="k.datumPovratka=='Knjiga nije vracena'">
+        <div class="container" *ngIf="k.datumPovratka=='Knjiga nije vracena'">
+          <h4><b>{{this.zaduzeneKnjige[i].naziv}}</b></h4>
+          <p>Autori:<li *ngFor="let a of this.zaduzeneKnjige[i].autori">{{a.ime}}</li></p>
+          <p *ngIf="brojDana(k)>=0">Broj preostalih dana:{{brojDana(k)}}</p>
+          <p *ngIf="brojDana(k)<0" style="background-color:red">Broj dana kasnjenja:{{-brojDana(k)}}</p>
+          <p *ngIf="k.datumPovratka=='Knjiga nije vracena'"><button (click)="razduziKnjigu(i)">Razduzi knjigu</button></p>
+          <p *ngIf="k.datumPovratka=='Knjiga nije vracena'&&this.korisnik.blokiran==false"><button (click)="detaljiOKnjizi(this.zaduzeneKnjige[i])">Detalji</button></p>
+          <p *ngIf="k.datumPovratka=='Knjiga nije vracena'&&!k.produzeno&&this.korisnik.blokiran==false"><button (click)="produzi(k)">Produzi</button></p>
+        </div>
+      </div>
+      <b *ngIf="this.brojTrenutnoZaduzenih==0">Nema zaduzenih knjiga!</b>
+
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

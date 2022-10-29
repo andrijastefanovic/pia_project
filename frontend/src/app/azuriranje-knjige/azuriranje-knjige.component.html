@@ -1,0 +1,70 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+    </div>
+</header>
+<body>
+<table>
+    <tr>
+        <td>Naziv:</td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)]="naziv" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Autori:</td>
+        <td>
+            <input type="text" name="autori" [(ngModel)]="autori" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Izdavac:</td>
+        <td>
+            <input type="text" name="izdavac" [(ngModel)]="izdavac" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Godina:</td>
+        <td>
+            <input type="number" name="godina" [(ngModel)]="godina" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" accept=".jpg, .png" name="slika" (change)='dodajSliku($event)'>
+        </td>
+    </tr>  
+    <tr>
+        <td>Jezik</td>
+        <td>
+            <input type="text" name="jezik" [(ngModel)]="jezik" required>
+        </td>
+    </tr> 
+    <tr>
+        <td>Broj na stanju:</td>
+        <td>
+            <input type="number" name="brojNaStanju" [(ngModel)]="brojNaStanju" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Zanrovi:</td>
+        <td>
+            <input type="text" name="zanrovi" [(ngModel)]="zanrovi" required>
+        </td>
+    </tr>    
+    <tr>
+        <td colspan="2">
+            <button (click)="azurirajKnjigu()">Azuriraj</button>
+        </td>
+    </tr>
+</table>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

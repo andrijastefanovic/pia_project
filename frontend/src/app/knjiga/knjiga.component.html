@@ -1,0 +1,136 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false" routerLink="/zahtevi">Zahtevi za dodavanje knjige</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+    </div>
+</header>
+<body><h1 class="naslov">Informacije o knjizi:</h1>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Autori</th>
+        <th>Prosecna ocena</th>
+        <th>Slika</th>
+        <th>Zaduzi knjigu</th>
+    </tr>
+    <tr>
+        <td>{{knjiga.naziv}}</td>
+        <td><li *ngFor="let m of this.knjiga.autori">{{m.ime}}</li></td>
+        <td *ngIf="this.knjiga.recenzije.length!=0">{{this.ocena}}/10
+        <td *ngIf="this.knjiga.recenzije.length==0">Nema ocena!</td>
+        <td>
+            
+            <img src="../../assets/{{knjiga.slika}}" style="max-height: 480;max-width: 300;">
+        </td>   
+        <td *ngIf="this.ovaKnjigaZaduzena==false&&knjiga.brojNaStanju>0&&istekaoRok==false&&this.knjigeNaZaduzenju.length<3"><button (click)="zaduzi()">Zaduzi knjigu</button></td>
+        <td *ngIf="this.ovaKnjigaZaduzena==false&&knjiga.brojNaStanju==0"><button (click)="rezervisi()">Rezervisi knjigu</button></td>
+    </tr>
+</table>
+<h1 class="naslov">Komentari:</h1>
+<span color="red">{{this.greska}}</span>
+<table *ngIf='this.knjiga.recenzije.length!=0'>
+    <tr>
+        <th>Ocena</th>
+        <th>Komentar</th>
+        <th>Datum i vreme</th>
+        <th>Korisnik</th>
+    </tr>
+    <tr *ngFor="let m of knjiga.recenzije">
+        <td>{{m.ocena}}/10</td>
+        <td *ngIf="m.azuriran==false">{{m.komentar}}</td>
+        <td *ngIf="m.azuriran==true" style='background-color: yellow;'>{{m.komentar}}</td>
+        <td>{{m.datumIVreme}}</td>
+        <td>{{m.korisnickoIme}}</td>
+        <td *ngIf="m.korisnickoIme==korisnik.korisnickoIme&&m.azuriran==false"><button (click)="azuriranjeRecenzije()">Azuriraj komentar</button></td>
+        <td *ngIf="azurirajRecenziju==true&&m.korisnickoIme==korisnik.korisnickoIme&&m.azuriran==false"><textarea name="azuriraj" [(ngModel)]="azuriraj"></textarea></td>
+        <td *ngIf="azurirajRecenziju==true&&m.korisnickoIme==korisnik.korisnickoIme&&m.azuriran==false"><button (click)="potvrdiAzuriranje(m)">Potvrdi azuriranje</button></td>
+    </tr>    
+</table>
+<span *ngIf="this.knjiga.recenzije.length==0"><b>Nema recenzija!</b></span>
+<h1 class="naslov" *ngIf="this.korisnik.tip=='moderator'">Promeni podatke o knjizi:</h1>
+
+
+<table *ngIf="this.korisnik.tip=='moderator'">
+    <tr>
+        <td>Naziv:</td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)]="naziv" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Autori:</td>
+        <td>
+            <input type="text" name="autori" [(ngModel)]="autori" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Izdavac:</td>
+        <td>
+            <input type="text" name="izdavac" [(ngModel)]="izdavac" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Godina:</td>
+        <td>
+            <input type="number" name="godina" [(ngModel)]="godina" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" accept=".jpg, .png" name="slika" (change)='dodajSliku($event)'>
+        </td>
+    </tr>  
+    <tr>
+        <td>Jezik</td>
+        <td>
+            <input type="text" name="jezik" [(ngModel)]="jezik" required>
+        </td>
+    </tr> 
+    <tr>
+        <td>Broj knjiga na stanju:</td>
+        <td>
+            <input type="number" name="brojNaStanju" [(ngModel)]="brojNaStanju" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Zanrovi:</td>
+        <td>
+            <input type="text" name="zanrovi" [(ngModel)]="zanrovi" required>
+        </td>
+    </tr>    
+    <tr>
+        <td colspan="2">
+            <button (click)="azurirajKnjigu()">Azuriraj</button>
+        </td>
+    </tr>
+</table>
+<h1 class="naslov">Dodaj recenziju</h1>
+Ocena: 
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='1'>1
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='2'>2
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='3'>3
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='4'>4
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='5'>5
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='6'>6
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='7'>7
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='8'>8
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='9'>9
+<input type='radio' name='ocena' [(ngModel)]='ocenaMoja' value='10'>10
+<br/>
+Komentar: <textarea name="komentar" [(ngModel)]="komentar"></textarea>
+<br>
+<span style="color:red">{{this.greska2}}</span>
+<br>
+<button (click)="recenzija()">Posalji recenziju</button>
+
+
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

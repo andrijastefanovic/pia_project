@@ -1,0 +1,124 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false" routerLink="/zahtevi">Zahtevi za dodavanje knjige</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+    </div>
+</header>
+<body>
+    <h1 class="naslov">Informacije o korisniku:</h1>
+<table>
+    <tr>
+        <td>Slika</td>
+        <td>Korisnicko ime</td>
+        <td>Ime</td>
+        <td>Prezime</td>
+        <td>Adresa</td>
+        <td>Telefon</td>
+        <td>Imejl</td>
+        <td>Tip</td>
+    </tr>
+    <tr>
+        <td>
+            <img src="../../assets/{{korisnik.slika}}" height="100">
+        </td>
+        <td>{{korisnik.korisnickoIme}}</td>
+        <td>{{korisnik.ime}}</td>
+        <td>{{korisnik.prezime}}</td>
+        <td>{{korisnik.adresa}}</td>
+        <td>{{korisnik.telefon}}</td>
+        <td>{{korisnik.imejl}}</td>
+        <td>{{korisnik.tip}}</td>
+        
+        
+    </tr>
+</table>
+<h1 class="naslov">Citalacke navike u proslih 365 dana:</h1>
+<div class="canvas-container">
+<canvas id="myChart1" class="cv"></canvas>
+<canvas id="myChart2" class="cv"></canvas>
+</div>
+<h1 class="naslov">Promenite svoje informacije:</h1>
+<button (click)="editovanje()">Edituj</button>
+<table *ngIf="edit">
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnickoIme" [(ngModel)]="korisnickoIme">
+        </td>
+    </tr>
+    <tr>
+        <td>Stara lozinka:</td>
+        <td>
+            <input type="password" name="staraLozinka" [(ngModel)]="staraLozinka">
+        </td>
+    </tr>
+    <tr>
+        <td>Nova lozinka:</td>
+        <td>
+            <input type="password" name="lozinka1" [(ngModel)]="lozinka1">
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrdite lozinku:</td>
+        <td>
+            <input type="password" name="lozinka2" [(ngModel)]="lozinka2">
+        </td>
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime">
+        </td>
+    </tr>  
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime">
+        </td>
+    </tr>  
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa">
+        </td>
+    </tr>
+    <tr>
+        <td>Telefon:</td>
+        <td>
+            <input type="text" name="telefon" [(ngModel)]="telefon">
+        </td>
+    </tr>
+    <tr>
+        <td>Imejl:</td>
+        <td>
+            <input type="email" name="imejl" [(ngModel)]="imejl">
+        </td>
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" accept=".jpg, .png" name="slika" (change)='dodajSliku($event)'>
+        </td>
+    </tr>
+    <br>
+    <span style='color: red'>{{greska}}</span>
+
+  
+    
+    <tr>
+        <td colspan="2">
+            <button (click)="azuriraj()">Azuriraj</button>
+        </td>
+    </tr>
+</table>
+
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>
+

@@ -1,0 +1,73 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a class="active" *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+    </div>
+</header>
+<body>
+<h1 class="naslov">Zahtevi za registraciju</h1>
+<table>
+<tr>
+    <th>Korisnicko ime:</th>
+    <th>Ime:</th>
+    <th>Prezime:</th>
+    <th>Prihvati zahtev:</th>
+    <th>Odbij zahtev:</th>
+</tr>
+<tr *ngFor="let k of korisnici">
+    <th *ngIf="k.obradjen==false">{{k.korisnickoIme}}</th>
+    <th *ngIf="k.obradjen==false">{{k.ime}}</th>
+    <th *ngIf="k.obradjen==false">{{k.prezime}}</th>
+    <th *ngIf="k.obradjen==false"><button (click)="prihvatiKorisnika(k)">Prihvati</button></th>
+    <th *ngIf="k.obradjen==false"><button (click)="odbijKorisnika(k)">Odbij</button></th>
+
+</tr>
+</table>
+<h1 class="naslov">Korisnici:</h1>
+<table>
+<tr>
+    <th>Korisnicko ime:</th>
+    <th>Azuriraj korisnika:</th>
+    <th>Obrisi korisnika:</th>
+    <th [colSpan]="2">Promeni privilegije:</th>
+    <th>Blokiraj/Odblokiraj korisnika:</th>
+</tr>
+<tr *ngFor="let k of korisnici;let i=index">
+    <th>{{k.korisnickoIme}}</th>
+    <th><button (click)="azurirajKorisnika(i)">Azuriraj</button></th>
+    <th><button (click)="obrisiKorisnika(i)">Obrisi</button></th>
+    <th><button (click)="podigniPrivilegije(i)">Podigni</button></th>
+    <th><button (click)="spustiPrivilegije(i)">Spusti</button></th>
+    <th *ngIf="k.blokiran==true"><button (click)="odblokiraj(k)">Odblokiraj</button></th>
+    <th *ngIf="k.blokiran==false"><button (click)="blokiraj(k)">Blokiraj</button></th>
+
+</tr>
+</table>
+<button (click)="dodajKorisnika()">Dodaj korisnika</button>
+<h1 class="naslov">Knjige:</h1>
+<table>
+<tr>
+    <th>Naziv knjige:</th>
+    <th>Azuriraj knjigu:</th>
+    <th>Obrisi knjigu:</th>
+</tr>
+<tr *ngFor="let k of knjige;let i=index">
+    <th>{{k.naziv}}</th>
+    <th><button (click)="azurirajKnjigu(i)">Azuriraj</button></th>
+    <th><button (click)="obrisiKnjigu(i)">Obrisi</button></th>
+</tr>
+</table>
+<button (click)="dodajKnjigu()">Dodaj knjigu</button>
+<h1 class="naslov">Podesi broj dana za vracanje knjige:</h1>
+<input type="number" [(ngModel)]="dani">
+<button (click)="potvrdiBrojDana()">Potvrdi broj dana</button>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>
+
+

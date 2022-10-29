@@ -1,0 +1,30 @@
+<header>
+    <div class="topnav" *ngIf="this.korisnik!=null">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a class="active" (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false" routerLink="/zahtevi">Zahtevi za dodavanje knjige</a>
+    <a routerLink="/citalac" >Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+</div>
+<div class="topnav" *ngIf="this.korisnik==null">
+    <a class="active" (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a routerLink="/login">Ulogujte se</a>
+    <a routerLink="/registracija">Registrujte se</a>
+    <a routerLink="/neregistrovan">Nastavite kao neregistrovan korisnik</a>
+</div>
+</header>
+<body>
+    <h1 class="naslov">Najcitanije knjige:</h1>
+    <div style="text-align: center;"><img src="../../assets/{{knjige[indeks].slika}}" height="400"></div>
+    <div style="text-align:center">
+        <span class="dot" (click)="currentSlide(1)"></span>
+        <span class="dot" (click)="currentSlide(2)"></span>
+        <span class="dot" (click)="currentSlide(3)"></span>
+      </div>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

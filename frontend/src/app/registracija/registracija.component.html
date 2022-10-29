@@ -1,0 +1,82 @@
+<header>
+
+    <div class="topnav">
+        <a routerLink="">Pocetna strana</a>
+        <a routerLink="/login">Ulogujte se</a>
+        <a class="active" routerLink="/registracija">Registrujte se</a>
+        <a routerLink="/neregistrovan">Nastavite kao neregistrovan korisnik</a>
+    </div>
+    </header>
+<body><h1 class="naslov">Registracija:</h1>
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnickoIme" [(ngModel)]="korisnickoIme" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka1" [(ngModel)]="lozinka1" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrdite lozinku:</td>
+        <td>
+            <input type="password" name="lozinka2" [(ngModel)]="lozinka2" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Telefon:</td>
+        <td>
+            <input type="text" name="telefon" [(ngModel)]="telefon" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Imejl:</td>
+        <td>
+            <input type="email" name="imejl" [(ngModel)]="imejl" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" accept=".jpg, .png" name="slika" (change)='dodajSliku($event)'>
+        </td>
+    </tr>
+    <br>
+    <span style='color: red'>{{greska}}</span>
+
+  
+    
+    <tr>
+        <td colspan="2">
+            <button (click)="registracija()">Registracija</button>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

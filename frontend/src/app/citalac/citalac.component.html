@@ -1,0 +1,89 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false" routerLink="/zahtevi">Zahtevi za dodavanje knjige</a>
+    <a routerLink="/citalac" class="active">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+</div>
+</header>
+<body>
+<h1 class="naslov">Obavestenja:</h1>
+<b *ngIf="this.zaduzenjeIstice">Za 2 dana ili manje istice rok za vracanje knjige!</b>
+<br *ngIf="this.zaduzenjeIstice">
+<b *ngIf="this.zaduzenjeIsteklo">Istekao je rok za vracanje knjige!</b>
+<br *ngIf="this.zaduzenjeIsteklo">
+<b *ngIf="this.triKnjigeZaduzene">Imate maksimalan broj knjiga na zaduzenju!</b>
+<br *ngIf="this.triKnjigeZaduzene">
+<b *ngIf="this.dodataKnjiga">Knjiga koju ste predlozili je dodata!</b>
+<br *ngIf="this.dodataKnjiga">
+<b *ngIf="this.dostupnaKnjiga">Knjiga koju ste rezervisali vam je dostupna!</b>
+<br *ngIf="this.dostupnaKnjiga">
+<b *ngIf="this.korisnik.blokiran">Blokirani ste od strane administratora!</b>
+<br *ngIf="this.korisnik.blokiran">
+<h1 *ngIf="this.korisnik.tip=='moderator'&&korisnik.blokiran==false">Dodaj knjigu</h1>
+<h1 *ngIf="this.korisnik.tip=='citalac' &&korisnik.blokiran==false">Dodaj zahtev za dodavanje knjige</h1>
+<button *ngIf="this.korisnik.tip=='moderator' &&korisnik.blokiran==false" (click)="dodajKnjigu()" class="naslov">Dodaj</button>
+<button *ngIf="this.korisnik.tip=='citalac'&&korisnik.blokiran==false" (click)="dodajKnjigu()" class="naslov">Dodaj zahtev</button>
+<h1 class="naslov" *ngIf="korisnik.blokiran==false">Knjiga dana:</h1>
+<table *ngIf="korisnik.blokiran==false">
+    <tr>
+        <th>Naziv</th>
+        <th>Autori</th>
+        <th>Prosecna ocena</th>
+        <th>Slika</th>
+    </tr>
+    <tr>
+        <td>{{izabranaKnjiga.naziv}}</td>
+        <td><li *ngFor="let m of izabranaKnjiga.autori">{{m.ime}}</li></td>
+        <td *ngIf="ocene[idIzabraneKnjigeUNizu.valueOf()]!=0">{{ocene[idIzabraneKnjigeUNizu.valueOf()]}}
+        </td>
+        <td *ngIf="ocene[idIzabraneKnjigeUNizu.valueOf()]==0">Nema ocena!
+
+        </td>
+        <td>
+            <img src="../../assets/{{izabranaKnjiga.slika}}" (click)="detaljiOKnjizi(izabranaKnjiga)" height="100">
+        </td>
+    </tr>
+</table>
+<h1 class="naslov">Pretrazi:</h1>
+<h4>Pretrazi knjige po nazivu ili autoru:</h4>
+<input type="text" name="pretraga" [(ngModel)]="tekst">
+<br/>
+<h4 *ngIf="korisnik.blokiran==false">Godine izdavanja:</h4>
+<input type="number" name="godine1" [(ngModel)]="godine1" *ngIf="korisnik.blokiran==false"><input type="number" name="godine2" [(ngModel)]="godine2" *ngIf="korisnik.blokiran==false">
+<br *ngIf="korisnik.blokiran==false">
+<h4 *ngIf="korisnik.blokiran==false">Izdavac:</h4>
+<input type="text" name="izdavac" [(ngModel)]="izdavac" *ngIf="korisnik.blokiran==false">
+<br *ngIf="korisnik.blokiran==false">
+<h4 *ngIf="korisnik.blokiran==false">Zanrovi:</h4>
+<select [multiple]="true" size="zanrovi.length" [(ngModel)]="izabraniZanrovi" *ngIf="korisnik.blokiran==false"><option *ngFor="let z of zanrovi;let i=index">{{z}}</select>
+<button (click)="pretrazi()">Pretrazi</button>
+<br/>
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Autori</th>
+        <th>Zanr</th>
+        <th>Slika</th>
+    </tr>
+    <tr *ngFor="let n of pretrazeneKnjige">
+        <td>{{n.naziv}}</td>
+        <td ><li *ngFor="let m of n.autori">{{m.ime}}</li></td>
+        <td>
+            
+                <li *ngFor="let z of n.zanr">{{z.naziv}}</li>
+            
+        </td>
+        <td>
+            <img src="../../assets/{{n.slika}}" (click)="detaljiOKnjizi(n)" height="100">
+        </td>
+    </tr>
+</table>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

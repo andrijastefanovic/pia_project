@@ -1,0 +1,25 @@
+<body><table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnickoIme" [(ngModel)]="korisnickoIme">
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka">
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2">
+            <button (click)="login()">Login</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

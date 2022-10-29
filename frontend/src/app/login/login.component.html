@@ -1,0 +1,34 @@
+<header>
+
+    <div class="topnav">
+        <a routerLink="">Pocetna strana</a>
+        <a class="active" routerLink="/login">Ulogujte se</a>
+        <a routerLink="/registracija">Registrujte se</a>
+        <a routerLink="/neregistrovan">Nastavite kao neregistrovan korisnik</a>
+    </div>
+</header>
+<body><table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnickoIme" [(ngModel)]="korisnickoIme">
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka">
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2">
+            <button (click)="login()">Login</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

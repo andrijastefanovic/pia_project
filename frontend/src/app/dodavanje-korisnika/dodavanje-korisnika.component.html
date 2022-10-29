@@ -1,0 +1,81 @@
+<header><div class="topnav">
+    <a routerLink="/profil" style="padding: 0;"><img src="../../assets/{{korisnik.slika}}" height="95" width="95"></a>
+    <a (click)="vratiNaPocetnu()">Pocetna strana</a>
+    <a (click)="trenutnaZaduzenja()">Trenutna zaduzenja</a>
+    <a (click)="istorijaZaduzivanja()">Istorija zaduzenja</a>
+    <a *ngIf="this.korisnik.tip=='admin'" routerLink="/admin">Adminstratorske funkcije</a>
+    <a routerLink="/citalac">Citalacke funkcije</a>
+    <a (click)="izlogujSe()">Izloguj se</a>
+</div>
+</header>
+<body>
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type="text" name="korisnickoIme" [(ngModel)]="korisnickoIme" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka1" [(ngModel)]="lozinka1" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrdite lozinku:</td>
+        <td>
+            <input type="password" name="lozinka2" [(ngModel)]="lozinka2" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime" required>
+        </td>
+    </tr>  
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Telefon:</td>
+        <td>
+            <input type="text" name="telefon" [(ngModel)]="telefon" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Imejl:</td>
+        <td>
+            <input type="email" name="imejl" [(ngModel)]="imejl" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" accept=".jpg, .png" name="slika" (change)='dodajSliku($event)'>
+        </td>
+    </tr>
+    <br>
+    <span style='color: red'>{{greska}}</span>
+
+  
+    
+    <tr>
+        <td colspan="2">
+            <button (click)="dodavanjeKorisnika()">Dodavanje korisnika</button>
+        </td>
+    </tr>
+</table>
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>

@@ -1,0 +1,43 @@
+<header>
+
+<div class="topnav">
+    <a routerLink="">Pocetna strana</a>
+    <a routerLink="/login">Ulogujte se</a>
+    <a routerLink="/registracija">Registrujte se</a>
+    <a class="active" routerLink="/neregistrovan">Nastavite kao neregistrovan korisnik</a>
+</div>
+</header>
+<body>
+    
+<h1 class="naslov">Ukucajte ime knjige ili pisca</h1>
+
+    <input type="text" name="pretraga" [(ngModel)]="tekst">
+<br/>
+<button (click)="pretrazi()">Pretrazi</button>
+<br/>
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Autori</th>
+        <th>Zanr</th>
+        <th>Slika</th>
+    </tr>
+    <tr *ngFor="let n of pretrazeneKnjige">
+        <td>{{n.naziv}}</td>
+        <td *ngFor="let m of n.autori"><li>{{m.ime}}</li></td>
+        <td>
+            <ul>
+                <li *ngFor="let z of n.zanr">{{z.naziv}}</li>
+            </ul>
+        </td>
+        <td>
+            <img src="../../assets/{{n.slika}}" height="100">
+        </td>
+    </tr>
+</table>
+
+</body>
+<footer>
+    Andrija Stefanovic, 2022
+</footer>
